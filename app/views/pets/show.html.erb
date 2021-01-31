@@ -15,6 +15,32 @@
   <%= @pet.birthdate %>
 </p>
 
+<hr/>
+<h2> Historial</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Fecha</th>
+      <th>Descripción</th>
+      <th>Peso</th>
+      <th>Altura</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @pet.pet_histories.each do |pet_history|%>
+    <tr>
+      <td><%= pet_history.created_at %></td>
+      <td><%= pet_history.description %></td>
+      <td><%= pet_history.weight %></td>
+      <td><%= pet_history.heigth%></td>
+    </tr>
+    <%end%>
+  </tbody>
+</table>
+<hr/>
+
+
 
 <table>
   <thead>
