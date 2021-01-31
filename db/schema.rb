@@ -10,7 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_31_175214) do
+ActiveRecord::Schema.define(version: 2021_01_31_184243) do
+
+  create_table "clients", force: :cascade do |t|
+    t.string "name"
+    t.integer "phone"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "email"
+  end
 
   create_table "pet_histories", force: :cascade do |t|
     t.float "weight"
@@ -28,6 +36,8 @@ ActiveRecord::Schema.define(version: 2021_01_31_175214) do
     t.date "birthdate"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "client_id"
+    t.index ["client_id"], name: "index_pets_on_client_id"
   end
 
 end
